@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="user">   
+   <select id="logon" parameterType="hashmap" resultType="hashmap">
+      select * from security_user
+      where user_ID = #{user_ID} and user_PW = #{user_PW} and del_yn = 'N'
+   </select>
+   <!-- 로그인 유저 -->
+   
+   <insert id="addAdmin" parameterType="hashmap">
+		insert into security_user
+		(user_ID, user_PW, user_Name, company, fund, address, authority)
+		values
+		(#{user_ID}, #{user_PW}, #{user_Name}, #{company}, #{fund}, #{address}, 'ROLE_ADMIN')
+   </insert>
+   <!-- 어드민 생성 -->
+   
+   <insert id="addUser" parameterType="hashmap">
+		insert into security_user
+		(user_ID, user_PW, user_Name, company, fund, address, authority)
+		values
+		(#{user_ID}, #{user_PW}, #{user_Name}, #{company}, #{fund}, #{address}, 'ROLE_USER')
+   </insert>
+   <!-- 유저 생성 -->   
+   
+   <select id="userList" parameterType="hashmap" resultType="hashmap">
+		select *, DATE_FORMAT (security_user.reg_date, "%Y년 %m월 %d일") as sign_date from security_user
+		where company = #{company} and authority = 'ROLE_USER' and del_yn = 'N'
+   </select>
+   <!-- 유저 목록 -->
+   
+   <update id="userDel" parameterType="hashmap">
+		update security_user set del_yn = 'Y'
+		where user_ID = #{user_ID}
+   </update>
+   <!-- 유저 삭제 -->
+   
+   <select id="IDList" parameterType="hashmap" resultType="hashmap">
+		select * from security_user
+		where user_ID = #{user_ID} and del_yn = 'N'
+   </select>
+   <!-- 중복 찾기 -->
+   
+</mapper>

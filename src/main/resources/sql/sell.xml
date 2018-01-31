@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="sell">   
+   <insert id="addsell1" parameterType="hashmap">
+		insert into sell_board
+		(user_ID, address, sell_No, order_No, order_Way)
+		select
+		user_ID, address, 1, order_No, order_Way
+		from order_board
+		where user_ID = #{user_ID} and order_No = #{order_No} and del_yn = 'N'
+   </insert>
+   <!-- 최초 판매 시 리스트에 생성 -->
+   
+   <insert id="addSell2" parameterType="hashmap">
+		insert into sell_board
+		(user_ID, address, sell_No, order_No, order_Way)
+		select
+		order_board.user_ID, order_board.address, max(sell_No) + 1, order_board.order_No, order_board.order_Way
+		from order_board
+		INNER JOIN sell_board
+		ON
+		order_board.user_ID = sell_board.user_ID 
+		where order_board.user_ID = #{user_ID} and order_board.order_No = #{order_No} and order_board.del_yn = 'N'
+   </insert>
+   <!-- 판매 시 리스트에 생성 -->
+   
+   <insert id="sellDetail1" parameterType="hashmap">
+		insert into sell_list
+		(user_ID, sell_No, sell_Num, sell_Total, sell_Sub, sell_Result, sell_Way, sell_Card, sell_CardNum)
+		select
+		sell_board.user_ID, sell_board.sell_No, 1, sum(order_list.item_Price), #{sell_Sub},  sum(order_list.item_Price) - #{sell_Sub}, #{sell_Way}, #{sell_Card}, #{sell_CardNum}
+		from sell_board
+		INNER JOIN order_list
+		ON
+		sell_board.order_No = order_list.order_No
+		where sell_board.order_No = #{order_No} and sell_board.user_ID = #{user_ID} and sell_board.del_yn = 'N'
+		and order_list.user_id = #{user_ID} and order_list.del_yn = 'N'
+   </insert>
+   <!-- 판매 리스트에 첫번째 결재 항목 생성 -->
+   
+   <insert id="sellDetail2" parameterType="hashmap">
+   		<![CDATA[
+			insert into sell_list
+			(user_ID, sell_No, sell_Num, sell_Total, sell_Sub, sell_Result, sell_Way, sell_Card, sell_CardNum)
+			select
+			sell_board.user_ID, sell_board.sell_No, max(sell_Num) + 1, sell_Total, #{sell_Sub},  sell_Result - #{sell_Sub}, #{sell_Way}, #{sell_Card}, #{sell_CardNum}
+			from sell_board
+			INNER JOIN sell_list
+			ON
+			sell_board.sell_No = sell_list.sell_No
+			where sell_list.sell_Result > 0 and sell_board.user_ID = #{user_ID} and sell_board.sell_No = #{sell_No}
+			and sell_board.del_yn = 'N' 
+		]]>
+   </insert>
+   <!-- 판매 리스트에 두번째번째 결재 항목 생성 -->
+   
+   <update id="takeBack" parameterType="hashmap">
+		update sell_list
+		set
+		del_yn = 'Y'
+		where user_ID = #{user_ID} and sell_No = #{sell_No} and sell_Sub = #{sell_Sub} and sell_Way = #{sell_Way} and sell_Card = #{sell_Card} and sell_CardNum = #{sell_CardNum}
+   </update>
+   
+   <select id="sellList" parameterType="hashmap" resultType="hashmap">
+		select *, DATE_FORMAT (sell_list.sell_date, "%Y-%m-%d %H:%i") as reg_date from sell_list
+		where user_ID = #{user_ID} and del_yn = 'N'
+   </select>
+   <!-- 판매 목록 리스트 가져오기 -->
+   
+   <select id="sellList2" parameterType="hashmap" resultType="hashmap">
+		select * from order_board
+		INNER JOIN sell_board
+		ON
+		order_board.order_No = sell_board.order_No
+		INNER JOIN sell_list
+		ON
+		sell_board.sell_No = sell_list.sell_No
+		where order_board.sold = 0 and 
+		order_board.user_ID = #{user_ID} and 
+		sell_list.del_yn = 'N' and order_board.order_No = #{order_No}
+		and sell_board.user_ID = #{user_ID}
+   </select>
+   <!-- 판매 목록 중 같은 리스트 가져오기 -->
+   
+   <select id="sellList3" parameterType="hashmap" resultType="hashmap">
+		select *, DATE_FORMAT (sell_list.sell_date, "%Y-%m-%d %H:%i") as reg_date from sell_list
+		where user_ID = #{user_ID} and del_yn = 'N' and date(sell_date) = date(now())
+   </select>
+   <!-- 오늘 판매 목록 리스트 가져오기 -->
+   
+   <select id="sellboard" parameterType="hashmap" resultType="hashmap">
+		select * from sell_board
+		where user_ID = #{user_ID} and del_yn = 'N' 
+   </select>
+   <!-- 판매 목록 가져오기 -->
+
+   <select id="sellforList" parameterType="hashmap" resultType="hashmap">
+		select * from sell_board 
+		INNer Join order_list 
+		ON
+		order_list.order_No = sell_board.order_No
+		where order_list.user_ID = #{user_ID} and sell_board.sell_No = #{sell_No} and
+		order_list.del_yn = 'N' and sell_board.user_ID = #{user_ID}
+	</select>
+	<!-- 영수증 페이지 목록의 아이템 1개 가져오기 -->
+   
+   <select id="sellDetailList" parameterType="hashmap" resultType="hashmap">
+		select *, DATE_FORMAT (sell_list.sell_date, "%Y-%m-%d %H:%i") from sell_list
+		where sell_No = #{sell_No} and user_ID = #{user_ID} and del_yn = 'N' and sell_Sub = #{sell_Sub}
+		order by sell_Num asc
+   </select>
+   <!-- 해당 판매 번호 아이템 리스트 목록 -->  
+   
+   <update id="Finish" parameterType="hashmap">
+		update order_board set sold = 1
+		where user_ID = #{user_ID} and order_No = #{order_No}
+   </update>
+   <!-- 판매한 주문번호 체크 -->
+   
+   <select id="forSold" parameterType="hashmap" resultType="hashmap">
+		select * from order_list
+		INNER JOIN order_board
+		ON
+		order_list.order_No = order_board.order_No
+		where order_board.sold = 1 and order_board.user_ID = #{user_ID} and order_board.order_No = #{order_No}
+   </select>
+   <!-- sold 가 1인 리스트 찾기 -->
+   
+   <update id="change" parameterType="hashmap">
+		update inven
+		set inven_Amount =
+		inven_Amount - (
+		select item_Amount from order_board
+		INNER JOIN order_list
+		ON
+		order_list.order_No = order_board.order_No
+		where order_board.user_ID = #{user_ID} and order_board.sold = 1 and item_No = #{item_No} and order_board.order_No = #{order_No})
+		where inven.user_ID = #{user_ID} and inven.item_No = #{item_No}
+	</update>
+	<!-- 판매 후 재고 아이템 수량 변경 -->
+   
+   <update id="fundUp" parameterType="hashmap">
+		update security_user
+		set fund =
+		fund + (
+		select sum(item_Price) from order_board
+		INNER JOIN order_list
+		ON
+		order_list.order_No = order_board.order_No
+		where order_board.user_ID = #{user_ID} and order_board.sold = 1 and order_board.order_No = #{order_No})
+		where security_user.user_ID = #{user_ID}
+	</update>
+	<!-- 판매 후 사업자 자금 변경 -->
+	
+	<select id="forResult" parameterType="hashmap" resultType="hashmap">
+		select sell_list.sell_Sub, sell_list.sell_Result, sell_list.sell_Total - sell_list.sell_Result as sell_Total from sell_list
+		INNER JOIN sell_board
+		ON
+		sell_list.sell_No = sell_board.sell_No
+		INNER JOIN order_list
+		ON
+		order_list.order_No = sell_board.order_No
+		where sell_list.user_ID = #{user_ID} and sell_list.sell_result > 0 and sell_board.order_No = #{order_No}
+		order by sell_list.sell_date desc limit 1
+	</select>
+	
+</mapper>

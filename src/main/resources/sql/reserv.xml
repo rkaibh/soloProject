@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="reserv">   
+   <insert id="reservItem" parameterType="hashmap">
+		insert into reserv_list
+		(user_ID, item_No, item_Name, item_Cost, reserv_Amount, reserv_Total)
+		select
+		user_ID, item_No, item_Name, item_Cost, #{reserv_Amount}, item_Cost * #{reserv_Amount}
+		from item_board
+		where user_ID = #{user_ID} and item_No = #{item_No}
+   </insert>
+   <!-- 아이템 발주 생성 -->
+   
+   <select id="reservList" parameterType="hashmap" resultType="hashmap">
+		select *, DATE_FORMAT (reserv_list.reserv_Date, "%Y-%m-%d") as up_date from reserv_list
+		where user_ID = #{user_ID}
+   </select>
+   <!-- 아이템 발주 목록 --> 
+   
+   <update id="fundSub" parameterType="hashmap">
+		update security_user
+		set fund = 
+		fund - (select reserv_Total from reserv_list order by reserv_Date desc LIMIT 1)
+		where user_Id = #{user_ID}
+   </update>
+   <!-- 발주로 자금 차감 -->
+   
+   <update id="amountAdd" parameterType="hashmap">
+		update inven
+		set inven_Amount = 
+		inven_Amount + (select reserv_Amount from reserv_list where reserv_list.item_No = #{item_No} order by reserv_Date desc LIMIT 1)
+		where user_Id = #{user_ID} and inven.item_No = #{item_No}
+   </update>
+   <!-- 발주로 창고 재고 증가 -->
+</mapper>

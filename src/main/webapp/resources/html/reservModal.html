@@ -1,0 +1,15 @@
+<!-- Modal -->
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body" style="text-align: center;">
+                <strong>{{reservItem.item_Name}}</strong> 의 수량을 입력해주세요.
+                <input type="text" name="reserv_Amount" style="border-bottom-left-radius: 15px; border-bottom-right-radius: 15px; border-top-left-radius: 15px; border-top-right-radius: 15px;" data-ng-model="reservItem.reserv_Amount">
+                <button class="btn btn-default" data-ng-click="itemReserve(reservItem)">주문하기</button>
+            </div>
+        </div>
+    </div>
+</div>

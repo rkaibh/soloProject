@@ -1,0 +1,66 @@
+<div class="col-sm-10">
+   <div class="paddingClass">
+       <div class="col-sm-12">
+           <div id="GraphUpLeft" class="col-sm-6">
+				<div class="GraphinputBox">
+					<input type="text" id="itemName" data-ng-model="search.item_Name"
+					data-ng-required="true" data-ng-minlength="2" maxlength="30"
+					name="item_Name" placeholder="상품 이름을 입력해주세요">
+					<span id="graphicon" data-ng-click="toItemSearch(search.item_Name)" class="glyphicon glyphicon-search"></span>
+					소지금액 {{ (fund | currency : "\\" : 2) + " 원 "}}
+				</div>
+				<h2 data-ng-if="!itemchk">정확하게 입력해주세요.</h2>
+				<table class="table table-bordered" id="salesleftTable">
+                   <thead>
+                       <tr>
+                           <th>{{itemSert.item_Name}}</th>
+                           <th>매출액</th>
+                           <th>매출량</th>
+                       </tr>
+                   </thead>
+                   <tbody>
+                       <tr>
+                           <td>일</td>
+                           <td>{{itemSert.daySert}}</td>
+                           <td>{{itemSert.dayAmount}}</td>
+                       </tr>
+                       <tr>
+                           <td>주</td>
+                           <td>{{itemSert.weekSert}}</td>
+                            <td>{{itemSert.weekAmount}}</td>
+                       </tr>
+                       <tr>
+                           <td>월</td>
+                           <td>{{itemSert.monthSert}}</td>
+                            <td>{{itemSert.monthAmount}}</td>
+                       </tr>
+                   </tbody>
+               </table>
+           </div>
+           <div id="GraphUpRight" class="col-sm-5">
+               <table class="table table-bordered" id="salesTable">
+                   <thead>
+                       <tr>
+                           <th></th>
+                           <th>매출액</th>
+                       </tr>
+                   </thead>
+                   <tbody>
+                       <tr>
+                           <td>일</td>
+                           <td>{{sert.daySert}}</td>
+                       </tr>
+                       <tr>
+                           <td>주</td>
+                           <td>{{sert.weekSert}}</td>
+                       </tr>
+                       <tr>
+                           <td>월</td>
+                           <td>{{sert.monthSert}}</td>
+                       </tr>
+                   </tbody>
+               </table>
+           </div>
+       </div>
+   </div>
+</div>

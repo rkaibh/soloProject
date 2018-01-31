@@ -1,0 +1,14 @@
+.AdBtn{
+    float: right;
+}
+
+.boardLine{
+    width: 100%;
+    min-width: 200px;
+}
+
+.boardLine th, .boardLine td{
+    overflow:hidden;
+    text-overflow: ellipsis;
+}
+

@@ -1,0 +1,98 @@
+<div class="col-sm-10">
+    <div class="paddingClass">
+        <div class="bigContent">
+           <div class="FindItemBox">
+                <div class="ItemBox2">
+                    상품번호 : <input id="ItemInput" type="text" data-ng-model="search.item_No" maxlength="25">
+                </div>
+                <div class="ItemBox1">
+                    상품이름 : <input id="ItemInput" type="text" data-ng-model="search.item_Name" maxlength="25">
+                </div>
+                <button type="submit" class="btn btn-default" style="float: left;" data-ng-click="filter(search)">조회</button>
+            </div>
+            <div class="ListLine">
+                <div class="LeftList">
+                    <div class="tableBox">
+                        <table class="table table-hover table-bordered" id="Lefttable">
+                            <thead>
+                                <tr>
+                                    <th id="tableNo">번호</th>
+                                    <th id="tableNumber">상품번호</th>
+                                    <th id="tableName">상품이름</th>
+                                </tr>
+                            </thead>
+                            <tbody id="leftTbody">
+                                <tr data-ng-repeat="rows in items" data-ng-click="reservItem(rows)">
+                                    <td id="tableNo">{{$index + 1}}</td>
+                                    <td id="tableNumber">{{rows.item_No}}</td>
+                                    <td id="tableName">{{rows.item_Name}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="buttonBox">
+                    <div class="btnBox">
+                        <button class="btn" id="Orderbtn" type="button" data-ng-click="btn1()"><span class="glyphicon glyphicon-arrow-right"></span></button>
+                    </div>
+                    <div class="btnBox">
+                        <button class="btn" id="Orderbtn" type="button" data-ng-click="btn2()"><span class="glyphicon glyphicon-arrow-left"></span></button>
+                    </div>
+                    <div class="btnBox">
+                        <button class="btn" id="Orderbtn" type="button" data-ng-click="btn3()">주문</button>
+                    </div>
+                </div>
+                <div class="RightList">
+                    <div class="tableBox">
+                        <table class="table table-hover table-bordered" id="Lefttable">
+                            <thead>
+                                <tr>
+                                    <th id="tableNo">번호</th>
+                                    <th id="tableNumber">상품번호</th>
+                                    <th id="tableName">상품이름</th>
+                                    <th id="tableNo">수량</th>
+                                </tr>
+                            </thead>
+                            <tbody id="rightTbody">
+                                <tr data-ng-repeat="rows in selecteditems" data-ng-click="reservItem(rows)">
+                                    <td id="tableNo">{{$index + 1}}</td>
+                                    <td id="tableNumber">{{rows.item_No}}</td>
+                                    <td id="tableName">{{rows.item_Name}}</td>
+                                    <td id="tableNo">{{rows.reserv_Amount}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="smallContent">
+            <div class="DownTableBox">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th id="downTableNo">번호</th>
+                            <th id="downTableNumber">상품번호</th>
+                            <th id="downTableName">상품이름</th>
+                            <th id="downTableMany">수량</th>
+                            <th id="downTableMoney">원가</th>
+                            <th id="downTableAll">총액</th>
+                            <th id="downTableDate">날짜</th>
+                        </tr>
+                    </thead>
+                    <tbody id="downTbody">
+                        <tr data-ng-repeat="rows in reservlist">
+                            <td id="downTableNo">{{$index + 1}}</td>
+                            <td id="downTableNumber">{{rows.item_No}}</td>
+                            <td id="downTableName">{{rows.item_Name}}</td>
+                            <td id="downTableMany">{{rows.reserv_Amount}}</td>
+                            <td id="downTableMoney">{{rows.item_Cost}}</td>
+                            <td id="downTableAll">{{rows.reserv_Total}}</td>
+                            <td id="downTableDate">{{rows.up_date}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

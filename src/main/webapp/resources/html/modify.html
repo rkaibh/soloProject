@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    
+    <link rel="stylesheet" href="/solo/css/login.css">
+    <link rel="stylesheet" href="/solo/css/pos.css">
+    <script type="text/javascript" src=""></script>
+    
+    <script type="text/javascript" src="/solo/angular/angular.min.js"></script>
+	<script type="text/javascript" src="/solo/angular/angular-route.min.js"></script>
+    
+    <script>
+        $(document).ready(function(){
+            $("#navBtn1").hide();
+        });
+    </script>
+    
+</head>
+<body>
+<nav class="navbar navbar-inverse">
+      <div class="container">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">POS</a>
+        </div>
+        <ul class="nav navbar-nav navbar-right">
+            <li><p id="navP">지점 : data</p></li>
+            <li><p id="navP">사업자 : data</p></li>
+            <li><button type="button" id="navBtn1" class="btn btn-default"><span class="glyphicon glyphicon-user"></span>Login</button> </li>
+            <li><button type="button" id="navBtn2" class="btn btn-default"><span class="glyphicon glyphicon-ban-circle"></span>Logout</button> </li>
+        </ul>
+      </div>
+</nav>
+<div class="content">
+     <!-- 여기로 넣기 -->
+    <div class="container-fluid">
+        <div class="col-sm-2">
+                <div class="list-group" id="sideCenter">
+                    <a class="list-group-item" href="#">정보수정<span class="glyphicon glyphicon-user"></span></a>
+                    <a class="list-group-item" href="#">상품발주<span class="	glyphicon glyphicon-shopping-cart"></span></a>
+                    <a class="list-group-item" href="#">매출정보<span class="glyphicon glyphicon-piggy-bank"></span></a>
+                    <a class="list-group-item" href="#">재고관리<span class="glyphicon glyphicon-folder-open"></span></a>
+                    <a class="list-group-item" href="#">주문내역<span class="glyphicon glyphicon-download-alt"></span></a>
+                    <a class="list-group-item" href="#">판매내역<span class="glyphicon glyphicon-list-alt"></span></a>
+                    <a class="list-group-item" href="#">영업등록<span class="glyphicon glyphicon-cutlery"></span></a>
+                </div>
+        </div>
+        <div class="col-sm-10">
+            <div class="container">
+        <div class="row">
+            <div class="Absolute-Center is-Responsive">
+                <h1 class="Text1">POS</h1>
+                <p class="Text2">Data management is the first step in everything.</p>
+              <div class="col-sm-12 col-md-10 col-md-offset-1">
+                <form>
+                    <div class="form-group input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                        <input class="form-control" type="text" name='id' value="idididid" disabled>          
+                    </div>
+                    <div class="form-group input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                        <input class="form-control" type="password" name='pw' value="pass">          
+                    </div>
+                    <div class="form-group input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-star"></i></span>
+                        <input class="form-control" type="text" name='name' value="name">          
+                    </div>
+                    <div class="form-group input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-briefcase"></i></span>
+                        <input class="form-control" type="text" name='cpname' value="goodee">
+                    </div>
+                    <div class="form-group input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
+                        <input class="form-control" type="text" name='adress' value="house">          
+                    </div>
+                    <div class="form-group" id="btnBox">
+                        <button type="button" id="cancelBtn" class="btn btn-def">Cancel</button>
+                        <button type="submit" id="signsubBtn" class="btn btn-def">Submit</button>
+                    </div>
+                </form>     
+              </div>  
+            </div>    
+        </div>
+    </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

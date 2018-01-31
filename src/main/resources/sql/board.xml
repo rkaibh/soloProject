@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="board">   
+   <insert id="first" parameterType="hashmap">
+		insert into admin_board
+		(company, title, contents)
+		values
+		(#{company}, '환영합니다.', '이 게시판은 공지사항을 작성할 수 있습니다.')
+   </insert>
+   <!-- 어드민계정 생성시 자동 글 생성 -->
+   
+   <insert id="adminAdd" parameterType="hashmap">
+		insert into admin_board
+		(no, company, title, contents)
+		select max(no) + 1, company, #{title}, #{contents}
+		from admin_board
+		where company = #{company} and del_yn = 'N'
+   </insert>
+   <!-- 어드민 글 생성 -->
+   
+   <select id="boardList" parameterType="hashmap" resultType="hashmap">
+		select *, DATE_FORMAT (admin_board.reg_date, "%Y년 %m월 %d일") as insert_date from admin_board
+		where company = #{company}
+   </select>
+   <!-- 게시글 목록 -->   
+   
+   <select id="boardDetail" parameterType="hashmap" resultType="hashmap">
+		select * from admin_board
+		where no = #{no} and company = #{company} and del_yn = 'N'
+   </select>
+   <!-- 게시글  확인 -->
+   
+</mapper>

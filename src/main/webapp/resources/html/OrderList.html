@@ -1,0 +1,58 @@
+<div class="col-sm-10">
+    <div id="OrderListLeft">
+        <div id="OrderListTable">
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th id="OrderListNo">주문번호</th>
+                        <th id="OrderListItem">주문내역</th>
+                        <th id="OrderListMoney">금액</th>
+                        <th id="OrderListTime">시간</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr data-ng-repeat="rows in ListOrder" data-ng-click="LookDetail(rows)">
+                        <td id="OrderListNo">{{$index + 1}}</td>
+                        <td id="OrderListItem">{{rows.item_Name}}</td>
+                        <td id="OrderListMoney">{{rows.total}}</td>
+                        <td id="OrderListTime">{{rows.reg_date}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div id="OrderListRight">
+        <div id="OrderListDetail">
+            <div class="OrderListDetail1">
+                <div class="ListDetailLeftText">
+                    <h2 id="ListDetailText"><strong>출력번호</strong></h2>
+                </div>
+                <div class="ListDetailRightText">
+                    <h2 id="ListDetailText"><strong>{{detail.order_No}}　　{{detail.order_Way}}</strong></h2>
+                </div>
+            </div>
+            <div class="OrderListDetail2">
+                <table id="DetailTable">
+                    <thead>
+                        <tr>
+                            <th id="OrderDetailItem">상품명</th>
+                            <th id="OrderDetailMany">수량</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr data-ng-repeat="rows in detailList">
+                            <td id="OrderDetailItem">{{rows.item_Name}}</td>
+                            <td id="OrderDetailMany">{{rows.item_Amount}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="OrderListDetail3">
+                <p id="OrderDetailTime">{{detail.reg_date}}</p>
+            </div>
+            <div class="OrderListDetail4">
+                <button type="button" id="OrderDetailBtn" class="btn btn-default" data-ng-click="toStartPos()">돌아가기</button>
+            </div>
+        </div>
+    </div>
+</div>   

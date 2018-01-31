@@ -1,0 +1,55 @@
+<div class="col-sm-10">
+    <div class="container-fluid">
+       <div id="leftContainer" class="col-sm-6 col-xs-12">
+            <div class="subContainer1">
+                <div class="headLine">
+                    <h2 class="headText">{{loginUser.user_Name}}님, 환영합니다!</h2>
+                </div>
+                <div class="adminBtnLine">
+                    <button class="btn btn-info" id="adminBtn" type="button"  data-ng-if="loginchk" data-ng-click="toManagement()">지점관리</button>
+                </div>
+                <div class="boardLine">
+                    <table class="table table-hover" id="tableText">
+                        <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>Title</th>
+                                <th>Date</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr data-ng-repeat="rows in boarding"  data-ng-click="toRead(rows)">
+                                <td><a href="" id="readIndex">{{rows.no}}</a></td>
+                                <td><p id="titleText">{{rows.title}}</p></td>
+                                <td><p id="titleText">{{rows.insert_date}}</p></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div id="BtnLine" class="col-sm-12">
+                    <div class="row">
+                        <div id="BtnBox" class="col-sm-4">
+                            <button type="button" class="btn btn-success" id="BtnMargin" data-ng-click="toStartPos()">영업시작</button>
+                        </div>
+                        <div id="BtnBox" class="col-sm-4">
+                            <button type="button" class="btn btn-info" id="BtnMargin" data-ng-if="loginchk" data-ng-click="toWrite()">글　쓰기</button>
+                        </div>
+                        <div id="BtnBox" class="col-sm-4">
+                            <button type="button" class="btn btn-default" data-ng-click="toLogout()" id="BtnMargin">로그아웃</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="rightContainer" class="col-sm-6">
+            <div class="subContainer2">
+                <div class="imgBox">
+                    <img id="imgSize" src="resources/img/security.png">
+                </div>
+                <div class="ContentText">
+                    <h1>This page has a security program running.</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,14 @@
+<div class="col-sm-10">
+    <div class="startingPos">
+        <div class="row">
+            <div class="col-sm-6" data-ng-repeat="rows in colbox">
+                <div class="StartingBox" data-ng-repeat="rows in rows.Table">
+                    <div class="TableBox" data-ng-click="toSeller(rows.Name)">
+                        <h4 id="tableBoxText1">{{rows.Name}}</h4>
+                        <p id="tableBoxText2"  data-ng-repeat="row in itemIndex" data-ng-if="rows.Name === row.order_Way">{{row.item_Name}} {{row.item_Amount}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

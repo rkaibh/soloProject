@@ -1,0 +1,85 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+
+/* 상단 */
+.GraphUpContent{
+    width: 100%;
+    height: auto;
+    min-height: 300px;
+    display: inline-block;
+}
+
+/* 상단 왼쪽 */
+#GraphUpLeft{
+    height: auto;
+    min-width: 200px;
+    min-height: 300px;
+    float: left;
+}
+
+#salesleftTable{
+	margin-top: 10px;
+	width: 80%;
+    height: auto;
+    min-height: 300px;
+    min-width: 180px;
+}
+
+#salesleftTable th, #salesleftTable td{
+    text-align: center;
+    width: calc(100% / 3);
+    min-width: 20px;
+    overflow:hidden;
+    text-overflow: ellipsis;
+}
+
+/* 상단 오른쪽 */
+#GraphUpRight{
+    min-width: 200px;
+    height: auto;
+    min-height: 300px;
+    float: left;
+}
+
+#salesTable{
+    margin-top: 38px;
+    width: 80%;
+    height: auto;
+    min-height: 300px;
+    min-width: 180px;
+}
+
+#salesTable th, #salesTable td{
+    text-align: center;
+    width: 50%;
+    min-width: 40px;
+    overflow:hidden;
+    text-overflow: ellipsis;
+}
+
+.GraphinputBox{
+	height: 20%;
+	min-width: 200px;
+	max-height: 300px;
+	display: inline-block;
+}
+
+#itemName{
+	border-bottom-left-radius: 15px;
+	border-top-left-radius: 15px;
+}
+
+#graphicon{
+	border: solid 1px black;
+	width: auto;
+	height: 100%;
+	min-width: 20px;
+	min-height: 20px;
+	text-align: center;
+}
+
+#graphicon:hover {
+	cursor: pointer;
+}

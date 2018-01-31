@@ -1,0 +1,21 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+
+.loginContent{
+	min-width:200px;
+	min-height:200px;
+	width: 50%;
+	height: 50%;
+	display: inline-block;
+}
+
+#loginBtn, #BackBtn{
+	float: right;
+	width: 85px;
+}
+
+#loginBtn{
+	margin-right: 15px;
+}

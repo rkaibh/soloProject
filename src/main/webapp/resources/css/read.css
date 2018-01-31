@@ -1,0 +1,36 @@
+.subContainer2{
+    margin: 3% 10% 0 10%;
+}
+
+#upBox{
+    display: block;
+    margin-bottom: 10px;
+    border: solid 1px grey;
+    border-top-left-radius:15px;
+    border-top-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    padding: 1%;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
+
+#downBox{
+    display: block;
+    margin-bottom: 10px;
+    border: solid 1px grey;
+    border-top-left-radius:15px;
+    border-top-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    padding: 1%;
+    height: auto;
+    min-height: 300px;
+    white-space:normal;
+    word-break:break-all;
+}
+
+.readBtn{
+    float: right;
+}

@@ -1,0 +1,82 @@
+
+<div class="col-sm-10">
+    <div class="row" id="sellerLeftBox">
+        <div class="col-sm-3">
+            <div class="sellerLeftUp">
+                <div class="sellerTableBox1">
+                    <table class="table table-bordered table-hover">
+                        <thead>
+                            <tr>
+                                <th id="sellerTableName">{{TableName}}　　　상품이름</th>
+                                <th id="sellerTableMany">수량</th>
+                                <th id="sellerTableMoney">금액</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr data-ng-repeat="rows in selectToOrder" data-ng-click="orderList(rows)" data-ng-if="rows.del_yn === 'N'">
+                                <td id="sellerTableName">{{rows.item_Name}}</td>
+                                <td id="sellerTableMany">{{rows.item_Amount}}</td>
+                                <td id="sellerTableMoney">{{rows.item_Price}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="sellerLeftUpBtnBox">
+                    <button type="button" class="btn btn-default" id="sellerLeftUpBtn" data-ng-click="orderListSub()">수량-</button>
+                    <button type="button" class="btn btn-default" id="sellerLeftUpBtn" data-ng-click="orderListAdd()">수량+</button>
+                    <button type="button" class="btn btn-default" id="sellerLeftUpBtn" data-ng-click="orderListDel()">취소</button>
+                </div>
+            </div>
+            <div class="sellerLeftDown">
+                <div class="sellerLeftDownLeft">
+                    <div class="sellerLeftDownTablebox">
+                        <table class="table table-bordered">
+                            <tbody>
+                                <tr>
+                                    <td>총매출액</td>
+                                    <td>{{result}}</td>
+                                </tr>
+                                <tr>
+                                    <td>받을금액</td>
+                                    <td>{{sellItem.sell_Result}}</td>
+                                </tr>
+                                <tr>
+                                    <td>받은금액</td>
+                                    <td>{{sellItem.sell_SubTo}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="sellerLeftDownBtnbox">
+                        <button type="button" class="btn btn-default" data-ng-click="btn2('cash', calput.result)" id="sellerLeftDownBtn">현금</button>
+                        <button type="button" class="btn btn-default" data-ng-click="btn2('card', calput.result)" id="sellerLeftDownBtn">카드</button>
+                    </div>
+                </div>
+                <div class="sellerLeftDownRight">
+                    <div class="sellerLeftDownRightUp">
+                        <input type="text" id="sellerInputbox" placeholder="결재금액" data-ng-model="calput.result" disabled>
+                        <button type="button" class="btn btn-default" id="sellerDownRightButton" data-ng-click="calboo()">취소</button>
+                    </div>
+                    <div class="sellerLeftDownRightDown">
+                        <div class="sellerNumberBox" data-ng-repeat="rows in calcul" data-ng-click="calclick(rows.No)"><p id="sellerNuber">{{rows.No}}</p></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-9">
+            <div class="sellerRightUp">
+                <div class="sellerCategoryBox" data-ng-repeat="rows in CateList" data-ng-click="cateIndex($index)">
+                    <p id="sellerCategoryText">{{rows.item_Category}}</p>
+                </div>
+            </div>
+            <div class="sellerRightCenter">
+                <div class="sellerItemBox" data-ng-repeat="rows in CateItems" data-ng-click="ItemIndex(rows)">
+                    <p id="sellerCategoryText">{{rows.item_Name}}</p>
+                </div>
+            </div>
+            <div class="sellerRightDown">
+                <button type="button" class="btn btn-default" id="sellerRightOrderBtn" data-ng-click="toSave()">주문하기</button>
+            </div>
+        </div>
+    </div>
+</div>

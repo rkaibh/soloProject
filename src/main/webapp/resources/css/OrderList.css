@@ -1,0 +1,164 @@
+/* 왼쪽 상단 */
+#OrderListLeft{
+    width: 50%;
+    min-width: 200px;
+    height: 500px;
+    float: left;
+    display: inline-block;
+    margin-botton: 10px;
+}
+
+/* 테이블 박스 */
+#OrderListTable{
+    width: 70%;
+    min-width: 200px;
+    height: 100%;
+    overflow-x: inherit;
+    overflow-y: scroll;
+}
+
+#OrderListTable th, #OrderListTable td{
+    text-overflow: ellipsis;
+    white-space:nowrap;
+    overflow: hidden;
+}
+
+#OrderListNo{
+    width: 10%;
+    height: 0px;
+}
+
+#OrderListItem{
+    width: 40%;
+    min-width: 73px;
+}
+
+#OrderListMoney{
+    width: 35%;
+    min-width: 45px;
+}
+
+#OrderListTime{
+    width: 15%;
+    min-width: 45px;
+}
+
+/* 오른쪽 */
+#OrderListRight{
+    width: 50%;
+    min-width: 200px;
+    height: 500px;
+    float: left;
+    display: inline-block;
+    margin-botton: 10px;
+}
+
+/* 큰박스 */
+#OrderListDetail{
+    width: 70%;
+    min-width: 200px;
+    height: 100%;
+    float: right;
+    display: block;
+    border: 1px solid black;
+}
+
+/* 1층 */
+.OrderListDetail1{
+    width: 100%;
+    height: auto;
+    min-height: 70px;
+    display: block;
+    padding-top: 5px;
+    border-bottom: 1px solid black;
+}
+
+.ListDetailLeftText{
+    width: 50%;
+    min-width: 120px;
+    height: 100%;
+    float: left;
+    text-align: left;
+}
+
+.ListDetailRightText{
+    width: 50%;
+    min-width: 109px;
+    height: 100%;
+    float: left;
+    text-align: right;
+}
+
+#ListDetailText{
+    margin: 0;
+}
+
+/* 2층 */
+.OrderListDetail2{
+    width: 100%;
+    min-width: 200px;
+    height: auto;
+    min-height: 310px;
+    max-height: 310px;
+    overflow-y: scroll;
+    overflow-x: inherit;
+    border-bottom: 1px solid black;
+}
+
+#DetailTable{
+    width: 100%;
+    height: auto;
+}
+
+#DetailTable th{
+    font-size: 2rem;
+}
+
+#DetailTable th, #DetailTable td{
+    text-overflow: ellipsis;
+    white-space:nowrap;
+    overflow: hidden;
+    padding: 5px;
+}
+
+#OrderDetailItem{
+    text-align: left;
+}
+
+#OrderDetailMany{
+    text-align: right;
+}
+
+/* 3층 */
+.OrderListDetail3{
+    width: 100%;
+    height: auto;
+    min-height: 40px;
+    padding-top: 5px;
+    border-bottom: 1px solid black;
+}
+
+#OrderDetailTime{
+    text-align: left;
+    margin: 0;
+    font-size: 2rem;
+}
+
+/* 4층 */
+.OrderListDetail4{
+    width: 100%;
+    height: auto;
+    min-height: 80px;
+    padding-top: 20px;
+}
+
+#OrderDetailBtn{
+    width: 90px;
+    height: 40px;
+    float: right;
+}
+
+#OrderListTable tbody tr:hover{
+	cursor: pointer;
+	background-color: highlight;
+}

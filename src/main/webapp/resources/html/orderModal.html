@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    
+    <link rel="stylesheet" href="/solo/css/login.css">
+    
+    <script type="text/javascript" src="/solo/angular/angular.min.js"></script>
+    <script type="text/javascript" src="/solo/angular/angular-route.min.js"></script>
+    <script>
+$(document).ready(function(){
+    $("#myBtn").click(function(){
+        $("#myModal").modal();
+    });
+});
+</script>
+</head>
+<body>
+<!-- Trigger the modal with a button -->
+  <button type="button" class="btn btn-default btn-lg" id="myBtn">order</button>
+
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+            <div class="row">
+                <div class="col-sm-12 col-md-10 col-md-offset-1">
+                    <form>
+                        <div class="form-group">
+                            <label for="name">상품이름 : </label>
+                            <input type="text" class="form-control" value="asdasd" disabled>
+                        </div>
+                        <div class="form-group">
+                            <label for="name">상품번호 : </label>
+                            <input type="text" class="form-control" value="1516" disabled>
+                        </div>
+                        <div class="form-group">
+                            <label for="name">수량 : </label>
+                            <input type="text" class="form-control">
+                        </div>
+                        <button type="submit" class="btn btn-default">주문</button>
+                        <button type="button" class="btn btn-default pull-right">취소</button>
+                    </form>          
+                </div>
+            </div>
+          </div>
+            <div class="row">
+                <div class="col-sm-12 col-md-10 col-md-offset-1">
+                    <form>
+                        <div class="form-group">
+                            <label for="name">상품이름 : </label>
+                            <input type="text" class="form-control" value="asdasd" disabled>
+                        </div>
+                        <div class="form-group">
+                            <label for="name">상품번호 : </label>
+                            <input type="text" class="form-control" value="1516" disabled>
+                        </div>
+                        <div class="form-group">
+                            <label for="name">수량 : </label>
+                            <input type="text" class="form-control" value="10">
+                        </div>
+                        <button type="submit" class="btn btn-default">정정</button>
+                        <button type="button" class="btn btn-default pull-right">취소</button>
+                    </form>          
+                </div>
+            </div>
+      </div>  
+    </div>
+  </div> 
+</body>

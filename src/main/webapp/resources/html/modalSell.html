@@ -1,0 +1,95 @@
+ <!-- Modal -->
+ <div class="modal fade" id="sellModal" role="dialog">
+   <div class="modal-dialog">
+   
+	<!-- Modal content-->
+	<div class="modal-content">
+		<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal">&times;</button>
+		</div>
+		
+		<div class="modal-body" data-ng-if="sellItem.sell_Way === 'card'">
+           <div class="modalSellUp">
+               <h2 id="modalSellUpText"><strong>신용카드</strong></h2>
+           </div>
+           <div class="modalSellLeft">
+               <div class="modalSellLeftUp">
+                   <div class="modalSellCardNumBox">
+                       번호 <input type="text" id="CardNum" data-ng-model="cardput.result" disabled>
+                   </div>
+                   <div class="modalSellCardWhoBox">
+                       회사 <input type="text" id="CardNum" name="name" data-ng-model="card.name">
+                   </div>
+               </div>
+               <div class="modalSellLeftDown">
+                   <table class="table table-bordered">
+                       <tbody>
+                           <tr>
+                               <td>승인 금액</td>
+                               <td>{{sellItem.sell_Sub}}</td>
+                           </tr>
+                           <tr>
+                               <td>총 금액</td>
+                               <td>{{sellItem.sell_Total}}</td>
+                           </tr>
+                           <tr>
+                               <td>남은 금액</td>
+                               <td>{{sellItem.sell_Result}}</td>
+                           </tr>
+                           <tr>
+                               <td>받은 금액</td>
+                               <td>{{sellItem.sell_SubTo}}</td>
+                           </tr>
+                       </tbody>
+                   </table>
+               </div>
+           </div>
+           <div class="modalSellRight">
+               <div class="modalSellNumBox">
+	               	<div class="modalSellNum" data-ng-repeat="rows in modalcalcul" data-ng-click="cardclick(rows.No)"><p id="sellerNuber">{{rows.No}}</p></div>
+               </div>
+               <div class="modalSellBtnBox">
+                   <button type="button" class="btn btn-default" data-ng-click="pay()" id="modalSellBtn">확인</button>
+               </div>
+           </div>
+       </div>
+       
+       
+       <div class="modal-body" data-ng-if="sellItem.sell_Way === 'cash'">
+           <div class="modalSellUp">
+               <h2 id="modalSellUpText"><strong>현금</strong></h2>
+           </div>
+           <div class="modalSellCashBox">
+               <div class="modalSellCashLeft">
+                   <table class="table table-bordered">
+                       <tbody>
+                           <tr>
+                               <td>승인 금액</td>
+                               <td>{{sellItem.sell_Sub}}</td>
+                           </tr>
+                           <tr>
+                               <td>총 금액</td>
+                               <td>{{sellItem.sell_Total}}</td>
+                           </tr>
+                           <tr>
+                               <td>남은 금액</td>
+                               <td>{{sellItem.sell_Result}}</td>
+                           </tr>
+                           <tr>
+                               <td>받은 금액</td>
+                               <td>{{sellItem.sell_SubTo}}</td>
+                           </tr>
+                           <tr>
+                               <td>거스름돈</td>
+                               <td>{{sellItem.return}}</td>
+                           </tr>
+                       </tbody>
+                   </table>
+               </div>
+               <button type="button" class="btn btn-default" data-ng-click="pay()" id="modalSellCashBtn">확인</button>
+           </div>
+       </div>
+       
+     </div>
+   </div>
+ </div> 

@@ -1,0 +1,102 @@
+/* 왼쪽 컨테이너 */
+#leftContainer{
+    height: auto;
+    display: inline-block;
+}
+
+/* 틀 */
+.subContainer1{
+    margin: 5% 10% 0 10%;
+}
+
+.headLine{
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+.headText{
+    margin: 0;
+}
+/* 지점관리버튼 */
+.adminBtnLine{
+    height: auto;
+    text-align: right;
+}
+
+#adminBtn{
+    margin-bottom: 5px;
+}
+
+/* 테이블 시작 */
+.boardLine{
+    width: 100%;
+	overflow-y: scroll;
+    height: 430px;
+}
+
+#readIndex{
+	margin: 0;
+	text-decoraion: none;
+	color: black;
+}
+
+#tableText{
+    table-layout:fixed;
+}
+
+.table tbody #titleText{
+    margin: 0;
+    padding: 0;
+    min-width: 50px;
+    text-align: left;
+    white-space: nowrap; 
+    overflow: hidden; 
+    text-overflow: ellipsis;
+}
+
+#tableText tbody tr:hover{
+	cursor: pointer;
+	background-color: #BCFFB5;
+}
+
+/* 하단 버튼 */
+#BtnLine{
+    text-align: center;
+}
+
+#BtnMargin{
+    margin-bottom: 5px;
+}
+
+/* 오른쪽 컨테이너 */
+#rightContainer{
+    height: auto;
+    display: inline-block;
+}
+
+.subContainer2{
+    margin: 20% 10% 0 10%;
+}
+
+.imgBox{
+    text-align: center;
+    height: auto;
+}
+
+#imgSize{
+    width: 165px;
+}
+
+#navText{
+	margin-right: 5px;
+	margin-top: 15px;
+}
+
+#navBtn2{
+	margin-top: 7px;
+}
+
+
+#navP{
+	color: white;
+}

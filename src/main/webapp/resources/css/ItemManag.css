@@ -1,0 +1,150 @@
+/* 상단 박스 */
+.ItemManagUpBox{
+    width: 100%;
+    height: auto;
+    display: inline-block;
+}
+
+/* 상단 왼쪽 */
+.UpLeftBtnBox{
+    width: 25%;
+    min-width: 200px;
+    height: auto;
+    display: inline-block;
+    float: left;
+}
+
+#UpLeftBtn{
+    width: 80px;
+    margin: 5px;
+}
+
+/* 상단 중간 */
+.UpCenterBtnBox{
+    width: 25%;
+    min-width: 185px;
+    height: auto;
+    float: left;
+    display: inline-block;
+}
+
+#UpCenterBtn{
+    width: 80px;
+    margin: 5px;
+    float: right;
+}
+
+/* 오른쪽 */
+.UpRightBtnBox{
+    width: 50%;
+    min-width: 200px;
+    height: auto;
+    float: left;
+    display: inline-block;
+}
+
+.UpRightBtnBoxharp{
+    width: 50%;
+    min-width: 100px;
+    display: inline-block;
+    float: left;
+    text-align: center;
+}
+
+#UpRightText{
+    margin: 0;
+    margin-top: 7px;
+    margin-bottom: 5px;
+    font-size: 2rem;
+    width: 80px;
+    float: left;
+}
+
+#UpRightDate{
+    margin: 7px;
+    background-color: aliceblue;
+    border-bottom-left-radius: 7px;
+    border-bottom-right-radius: 7px;
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+    float: left;
+}
+
+#UpRightInput{
+    float: left;
+    margin: 7px;
+    width: 180px; 
+    background-color: aliceblue;
+    border-bottom-left-radius: 7px;
+    border-bottom-right-radius: 7px;
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+}
+
+.ItemManagCenterBox{
+    width: 100%;
+    min-width: 200px;
+    height: 400px;
+    margin-bottom: 10px;
+    overflow-y: scroll;
+    overflow-x: inherit;
+    background-color: lightgrey;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+.ItemManagCenterBox th, .ItemManagCenterBox td{
+    overflow:hidden;
+    text-overflow: ellipsis;
+    white-space:nowrap;
+}
+
+#ItemManagNo{
+    width: 13%;
+    min-width: 73px;
+}
+
+#ItemManagName{
+    width: 30%;
+    min-width: 73px;
+}
+
+#ItemManagMoney{
+    width: 13%;
+    min-width: 45px;
+}
+
+#ItemManagMany{
+    width: 6%;
+    min-width: 45px;
+}
+
+#ItemManagFirdate{
+    width: 17%;
+    min-width: 73px;
+}
+
+#ItemManagLastdate{
+    width: 17%;
+    min-width: 73px;
+}
+
+#ItemManagWho{
+    width: 4%;
+    min-width: 59px;
+}
+
+.ItemManagDownBox{
+    width: 100%;
+    min-width: 200px;
+    height: auto;
+    display: inline-block;
+}
+
+#ItemManagBackBtn{
+    float: right;
+    width: 100px;
+    height: 40px;
+}

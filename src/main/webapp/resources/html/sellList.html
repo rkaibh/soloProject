@@ -1,0 +1,132 @@
+<div class="col-sm-10">
+    <div id="SellListContainer">
+        <div id="SellListLeft">
+            <div id="SellListTable">
+                <table class="table table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th id="SellListNo">No</th>
+                            <th id="SellListItem">받은금액</th>
+                            <th id="SellListMoney">금　　액</th>
+                            <th id="SellListCC">결　　재</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr data-ng-repeat="rows in Listsell" data-ng-click="foritem(rows)">
+                            <td id="SellListNo">{{$index + 1}}</td>
+                            <td id="SellListItem">{{rows.sell_Sub}}</td>
+                            <td id="SellListMoney">{{rows.sell_Total}}</td>
+                            <td id="SellListCC">{{rows.sell_Way}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div id="SellListRight">
+            <div id="SellListDetail">
+                <div class="SellListDetail1">
+                    <div class="SellDetailText1">
+                        <h2 id="SellDetailText1"><strong>[ 영 수 증 ]</strong></h2>
+                    </div>
+                    <div class="SellDetailText2">
+                        <div class="SellDetailText2-1">
+                            <h4 id="SellDetailText2">사업자명</h4>
+                        </div>
+                        <div class="SellDetailText2-2">
+                            <h4 id="SellDetailText2">{{loginUser.user_ID}}</h4>
+                        </div>
+                    </div>
+                    <div class="SellDetailText2">
+                        <div class="SellDetailText2-1">
+                            <h4 id="SellDetailText2">기　　업</h4>
+                        </div>
+                        <div class="SellDetailText2-2">
+                            <h4 id="SellDetailText2">{{loginUser.company}}</h4>
+                        </div>
+                    </div>                           
+                    <div class="SellDetailText2">
+                        <div class="SellDetailText2-1">
+                            <h4 id="SellDetailText2">주　　소</h4>
+                        </div>
+                        <div class="SellDetailText2-2">
+                            <h4 id="SellDetailText2">{{loginUser.address}}</h4>
+                        </div>
+                    </div>
+                    <div class="SellDetailText2">
+                        <div class="SellDetailText2-1">
+                            <h4 id="SellDetailText2">주문번호</h4>
+                        </div>
+                        <div class="SellDetailText2-2">
+                            <h4 id="SellDetailText2">{{orderNum.order_Way}} {{orderNum.order_No}}</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="SellListDetail2">
+                    <table id="SellDetailTable">
+                        <thead>
+                            <tr>
+                                <th id="SellDetailItem">상품명</th>
+                                <th id="SellDetailOne">단가</th>
+                                <th id="SellDetailMany">수량</th>
+                                <th id="SellDetailMoney">금액</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr data-ng-repeat="rows in fortemList">
+                                <td id="SellDetailItem">{{rows.item_Name}}</td>
+                                <td id="SellDetailOne">{{rows.item_Piece}}</td>
+                                <td id="SellDetailOne">{{rows.item_Amount}}</td>
+                                <td id="SellDetailMoney">{{rows.item_Price}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="SellListDetail3">
+                    <div class="SellDetailText2">
+                        <div class="SellDetailText2-3">
+                            <h4 id="SellDetailText3">결　　재</h4>
+                        </div>
+                        <div class="SellDetailText2-4">
+                            <h4 id="SellDetailText3">{{orderNum.sell_Way}}</h4>
+                        </div>
+                    </div>
+                    <div class="SellDetailText2">
+                        <div class="SellDetailText2-3">
+                            <h4 id="SellDetailText3">카드번호</h4>
+                        </div>
+                        <div class="SellDetailText2-4">
+                            <h4 id="SellDetailText3">{{orderNum.sell_Card}}　{{orderNum.sell_CardNum}}</h4>
+                        </div>
+                    </div>
+                    <div class="SellDetailText2">
+                        <div class="SellDetailText2-3">
+                            <h4 id="SellDetailText3">받은금액</h4>
+                        </div>
+                        <div class="SellDetailText2-4">
+                            <h4 id="SellDetailText3">{{orderNum.sell_Sub}}</h4>
+                        </div>
+                    </div>
+                    <div class="SellDetailText2">
+                        <div class="SellDetailText2-3">
+                            <h4 id="SellDetailText3">영수금액</h4>
+                        </div>
+                        <div class="SellDetailText2-4">
+                            <h4 id="SellDetailText3">{{orderNum.sell_Total}}</h4>
+                        </div>
+                    </div>
+                    <div class="SellDetailText2">
+                        <div class="SellDetailText2-3">
+                            <h4 id="SellDetailText3">결제시간</h4>
+                        </div>
+                        <div class="SellDetailText2-4">
+                            <h4 id="SellDetailText3">{{orderNum.reg_date}}</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="SellListDetail4">
+                    <button type="button" id="SellDetailBtn" class="btn btn-default" data-ng-click="toStartPos()">돌아가기</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>    

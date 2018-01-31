@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="item">   
+   <insert id="addItem" parameterType="hashmap">
+		insert into item_board
+		(user_ID, company, item_Name, item_Price, item_Cost, item_Category)
+		select
+		user_ID, company, #{item_Name}, #{item_Price}, #{item_Cost}, #{item_Category}
+		from security_user
+		where user_ID = #{user_ID} and company = #{company}
+   </insert>
+   <!-- 아이템 최초 생성 -->
+   
+   <insert id="addInven" parameterType="hashmap">
+		insert into inven
+		(user_ID, item_No, item_Name, item_Price)
+		select
+		user_ID, item_No, item_Name, item_Price
+		from item_board as ib
+		where not exists (select 1 from inven
+                		where item_No = ib.item_No
+					 	and   user_ID = ib.user_ID)
+		and ib.user_ID = #{user_ID}
+   </insert>
+   <!-- 아이템 생성 시 재고테이블 등록 -->
+   
+   <select id="itemList" parameterType="hashmap" resultType="hashmap">
+		select * from item_board
+		where user_ID = #{user_ID} and del_yn = 'N'
+   </select>
+   <!-- 등록 아이템 목록 -->
+   
+   <select id="cateList" parameterType="hashmap" resultType="hashmap">
+		select DISTINCT item_Category from item_board
+		where user_ID = #{user_ID} and del_yn = 'N'
+   </select>
+   <!-- 등록 아이템 중 카테고리 개수 확인 -->
+   
+   <select id="itemincate" parameterType="hashmap" resultType="hashmap">
+		select * from item_board
+		INNER JOIN inven
+		ON
+		item_board.item_No = inven.item_No
+		where item_board.user_ID = #{user_ID} and item_board.item_Category = #{item_Category} and item_board.del_yn = 'N'
+   </select>
+   <!-- 카테고리 안에 아이템 확인 -->
+      
+   <select id="invenList" parameterType="hashmap" resultType="hashmap">
+		select * from inven
+		where user_ID = #{user_ID} and del_yn = 'N'
+   </select>
+   <!-- 재고  확인 -->
+   
+   <select id="chkItem" parameterType="hashmap" resultType="hashmap">
+		select * from item_board
+		where item_No = #{item_No} and del_yn = 'N'
+   </select>
+   <!-- 주문 전 리스트 아이템 확인 -->
+
+   <select id="itemManage" parameterType="hashmap" resultType="hashmap">
+		select item_board.item_No, item_board.item_Name, item_board.item_Price, item_board.item_Cost, inven.inven_Amount,
+		DATE_FORMAT (item_board.item_Date, "%Y-%m-%d") as create_date,
+		DATE_FORMAT (inven.reserv_Date, "%Y-%m-%d") as order_date, #{user_ID} as user_ID
+		from item_board
+		INNER JOIN inven
+		ON
+		item_board.item_No = inven.item_No
+		where inven.user_ID = #{user_ID} and inven.del_yn = 'N' and item_board.del_yn = 'N'
+		ORDER BY item_No
+	</select>
+	<!-- 재고관리 페이지 목록 -->
+	
+	<select id="forCreate" parameterType="hashmap" resultType="hashmap">
+		select security_user.user_ID, security_user.company, item_No, item_Name, item_Price, item_Cost,
+		item_Category from security_user
+		INNER JOIN item_board
+		ON
+		security_user.company = item_board.company
+		where 
+		security_user.company = (select company from security_user where user_ID = #{user_ID})
+		and security_user.authority = 'ROLE_ADMIN'
+	</select>
+	<!-- 재고관리 페이지 목록 -->
+	
+   <update id="itemPrice" parameterType="hashmap">
+		update item_board set item_Price = #{item_Price}
+		where item_No = #{item_No}
+   </update>
+   <!-- 등록된 아이템 단가 변경 -->
+
+	<update id="invenPrice" parameterType="hashmap">
+		update inven set item_Price = #{item_Price}
+		where item_No = #{item_No}
+	</update>
+   <!-- 등록된 재고 아이템 단가 변경 -->
+   
+   <update id="itemDel" parameterType="hashmap">
+		update item_board set del_yn = 'Y'
+		where user_ID = #{user_ID} and item_no = #{item_no}
+   </update>
+   <!-- 등록된 아이템 삭제 -->
+   
+   <update id="invenDel" parameterType="hashmap">
+		update inven set del_yn = 'Y'
+		where user_ID = #{user_ID} and item_no = #{item_no}
+   </update>
+   <!-- 등록된 재고 아이템 삭제 -->
+   
+   <update id="invenReserv" parameterType="hashmap">
+		update inven
+		set inven_Amount = inven_Amount +
+		(select reserv_Amount from reserv_list where item_No = #{item_No}
+   </update>
+   <!-- 발주로 인한 재고 아이템 수량 추가 -->   
+   
+   <select id="itemSearch" parameterType="hashmap" resultType="hashmap">
+		select user_ID, item_Name from item_board
+		where item_Name = #{item_Name} and del_yn = 'N' and user_ID = #{user_ID}
+   </select>
+   <!-- 아이템 검색 -->
+   
+</mapper>

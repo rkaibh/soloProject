@@ -1,0 +1,15 @@
+<nav class="navbar navbar-inverse">
+      <div class="container">
+		<div class="navbar-header">
+		  <a class="navbar-brand" href="/">POS</a>
+		</div>
+		<ul class="nav navbar-nav navbar-right">
+		    <li id="navText"><p id="navP" data-ng-if="onchk">지점 : {{loginUser.address}}</p></li>
+		    <li id="navText"><p id="navP" data-ng-if="onchk">사업자 : {{loginUser.user_Name}}</p></li>
+		    <li id="navText"><p id="navP" data-ng-if="!onchk">로그인을 하지 않아 미리 보기 중입니다.</p></li>
+		    <li><button type="button" id="navBtn2" class="btn btn-default" data-ng-click="toLogin()" data-ng-if="!onchk"><span class="glyphicon glyphicon-user"></span>Login</button> </li>
+		    <li><button type="button" id="navBtn2" class="btn btn-default" data-ng-click="toSignup()" data-ng-if="!onchk"><span class="glyphicon glyphicon-user"></span>SignUp</button> </li>
+		    <li><button type="button" id="navBtn2" class="btn btn-default" data-ng-click="toLogout()" data-ng-if="onchk"><span class="glyphicon glyphicon-ban-circle"></span>Logout</button> </li>
+		</ul>
+	</div>
+</nav>

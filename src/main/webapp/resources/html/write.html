@@ -1,0 +1,18 @@
+<div class="col-sm-10">
+    <div class="subContainer2">
+            <form name="boardFrom" data-ng-submit="adminWrite()" method="POST">
+            <div class="form-group">
+                <label for="title">Title</label>
+                <input type="text" class="form-control" maxlength="70" id="title" name="title" data-ng-model="board.title" data-ng-required="true" data-ng-minlength="2" maxlength="30">
+            </div>
+            <div class="form-group">
+                <label for="contents">Contents</label>
+                <textarea type="text" class="form-control" id="contents" name="contents" data-ng-model="board.contents" data-ng-required="true" data-ng-minlength="2" maxlength="100"></textarea>
+            </div>
+            <div class="form-group" id="BtnBox">
+                <button type="submit" class="btn btn-default">Submit</button>
+                <button type="submit" class="btn btn-default" data-ng-click="toPos()">Cencel</button>
+            </div>
+        </form>
+    </div>
+</div>

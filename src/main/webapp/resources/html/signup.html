@@ -1,0 +1,51 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12" style="text-align: center;">
+        <h1 class="Text1">Sign Up</h1>
+        <p class="Text2">New owners are always welcome.</p>
+        	<div class="formContent">
+		      <div class="col-sm-12" id="loginForm">
+		        <form name="signupForm" data-ng-submit="addAdmin()">
+		            <div class="form-group input-group">
+		                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+		                <input class="form-control" type="text" name="user_ID" data-ng-model="admin.user_ID" placeholder="ID를 입력하세요" data-ng-required="true" data-ng-minlength="2" maxlength="20"/>          
+		            </div>
+		            <div class="form-group input-group">
+		                <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+		                <input class="form-control" type="password" name="user_PW" data-ng-model="admin.user_PW" data-ng-if="!Or" placeholder="password를 입력하세요" disabled="disabled"> 
+		                <input class="form-control" type="password" name="user_PW" data-ng-model="admin.user_PW" data-ng-if="Or" placeholder="password를 입력하세요" data-ng-required="true" data-ng-minlength="2" maxlength="20"/>         
+		            </div>
+		            <div class="form-group input-group">
+		                <span class="input-group-addon"><i class="glyphicon glyphicon-star"></i></span>
+		                <input class="form-control" type="text" name="user_Name" data-ng-model="admin.user_Name" data-ng-if="!Or" placeholder="이름을 입력하세요" disabled="disabled">
+		                <input class="form-control" type="text" name="user_Name" data-ng-model="admin.user_Name" data-ng-if="Or" placeholder="이름을 입력하세요" data-ng-required="true" data-ng-minlength="2" maxlength="20">          
+		            </div>
+		            <div class="form-group input-group">
+		                <span class="input-group-addon"><i class="glyphicon glyphicon-briefcase"></i></span>
+		                <input class="form-control" type="text" name="company" data-ng-model="admin.company" data-ng-if="!Or" placeholder="기업 이름을 입력하세요" disabled="disabled">
+		                <input class="form-control" type="text" name="company" data-ng-model="admin.company" data-ng-if="Or" placeholder="기업 이름을 입력하세요" data-ng-required="true" data-ng-minlength="2" maxlength="30">
+		            </div>
+		            <div class="form-group input-group">
+		                <span class="input-group-addon"><i class="glyphicon glyphicon-usd"></i></span>
+		                <input class="form-control" type="text" name="fund" data-ng-model="admin.fund" data-ng-if="!Or" placeholder="fund를 입력하세요" disabled="disabled">   
+		                <input class="form-control" type="text" name="fund" data-ng-model="admin.fund" data-ng-if="Or" placeholder="fund를 입력하세요" data-ng-required="true" maxlength="8">          
+		            </div>
+		            <div class="form-group input-group">
+		                <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
+		                <input class="form-control" type="text" name="address" data-ng-model="admin.address" data-ng-if="!Or" placeholder="지점을 입력하세요" disabled="disabled"> 
+		                <input class="form-control" type="text" name="address" data-ng-model="admin.address" data-ng-if="Or" placeholder="지점을 입력하세요" data-ng-required="true" data-ng-minlength="2" maxlength="50">          
+		            </div>
+		            <div class="form-group" id="btnBox">
+		                <button type="button" id="cancelBtn" class="btn btn-def" data-ng-click="toMain()">Cancel</button>
+		                <button type="submit" id="signsubBtn" class="btn btn-def" data-ng-if="Not">Submit</button>
+		                <button type="button" data-ng-click="toChk(admin.user_ID)" id="signsubBtn" class="btn btn-def" data-ng-if="!Not">중복확인</button>
+		            </div>
+		            <div class="form-group">
+			            <span data-ng-if="Not"><h2>존재하지 않는 아이디 입니다. 나머지 정보를 입력해주세요.</h2></span>
+		            </div>
+		        </form>        
+		      </div>
+	      </div>  
+	    </div>    
+	</div>
+</div>

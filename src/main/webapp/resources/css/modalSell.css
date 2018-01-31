@@ -1,0 +1,118 @@
+/* 상단 텍스트박스 */
+.modalSellUp{
+    width: 100%;
+    height: 45px;
+}
+
+#modalSellUpText{
+    margin: 0;
+}
+
+/* 왼쪽 틀 */
+.modalSellLeft{
+    width: 45%;
+    height: auto;
+    display: inline-block;
+}
+
+/* 왼쪽 상단 박스 */
+.modalSellLeftUp{
+    text-align: center;
+    width: 100%;
+    display: inline-block;
+    margin-bottom: 5px
+}
+
+/* 왼쪽 상단 카드번호 박스 */
+.modalSellCardNumBox{
+    text-align: center;
+    width: 100%;
+    display: inline-block;
+    margin-bottom: 5px;
+}
+
+#CardNum{
+    width: 70%;
+    margin-left: 10px;
+    height: 23px;
+}
+
+/* 왼쪽 상단 카드사 박스 */
+.modalSellCardWhoBox{
+    text-align: center;
+    width: 100%;
+    display: inline-block;
+    margin-bottom: 5px;
+}
+
+#CardWho{
+    width: 70%;
+    margin-left: 10px;
+    height: 23px
+}
+
+/* 왼쪽 하단 박스 */
+.modalSellLeftDown{
+    width: 100%;
+    height: auto;
+    text-align: center;
+}
+
+/* 오른쪽 */
+.modalSellRight{
+    width: 45%;
+    height: auto;
+    float: right;
+    display: inline-block
+}
+
+/* 오른쪽 자판 박스 */
+.modalSellNumBox{
+    width: 100%;
+    height: auto;
+    display: inline-block;
+    margin-bottom: 5px;
+}
+
+.modalSellNumBox div:hover{
+    background-color: darkturquoise;
+    cursor: pointer;
+}
+
+.modalSellNum{
+    width:  calc(100% / 3);
+    height: 40px;
+    border: 1px solid black;
+    text-align: center;
+    padding: 5px;
+    float: left;
+}
+
+#modalSellBtn{
+    width: 70px;
+    height: 40px;
+    float: right;
+}
+
+/* 현금 박스 */
+.modalSellCashBox{
+    width: 100%;
+    height: auto;
+    display: inline-block;
+}
+
+/* 현금 왼쪽 박스 */
+.modalSellCashLeft{
+    width: 45%;
+    height: auto;
+    text-align: center;
+}
+
+#modalSellCashBtn{
+    width: 70px;
+    height: 40px;
+    position: absolute;
+    right: 20px;
+    bottom: 25px;
+}
+

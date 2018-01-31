@@ -1,0 +1,46 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12" style="text-align: center;">
+        <h1 class="Text1">Add Chain</h1>
+        <p class="Text2">New users are always welcome.</p>
+        	<div class="formContent">
+		      <div class="col-sm-12" id="loginForm">
+		        <form name="signupForm" data-ng-submit="userAdd()">
+		            <div class="form-group input-group">
+		                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+		                <input class="form-control" type="text" name="user_ID" data-ng-model="user.user_ID" placeholder="ID를 입력하세요" data-ng-required="true" data-ng-minlength="2" maxlength="20"/>          
+		            </div>
+		            <div class="form-group input-group">
+		                <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+		                <input class="form-control" type="password" name="user_PW" data-ng-model="user.user_PW" data-ng-if="!Not" data-ng-required="true" data-ng-minlength="2" placeholder="password를 입력하세요" maxlength="20"/>
+		                <input class="form-control" type="password" name="user_PW" data-ng-model="user.user_PW" data-ng-if="Not" placeholder="password를 입력하세요" disabled="disabled">       
+		            </div>
+		            <div class="form-group input-group">
+		                <span class="input-group-addon"><i class="glyphicon glyphicon-star"></i></span>
+		                <input class="form-control" type="text" name="user_Name" data-ng-model="user.user_Name" data-ng-if="!Not"  data-ng-required="true" data-ng-minlength="2" placeholder="이름을 입력하세요" maxlength="20"/>
+		                <input class="form-control" type="text" name="user_Name" data-ng-model="user.user_Name" data-ng-if="Not" placeholder="이름을 입력하세요" disabled="disabled"/>          
+		            </div>
+		            <div class="form-group input-group">
+		                <span class="input-group-addon"><i class="glyphicon glyphicon-usd"></i></span>
+		                <input class="form-control" type="text" name="fund" data-ng-model="user.fund" data-ng-if="!Not" data-ng-required="true" data-ng-minlength="2" placeholder="자본금액을 입력하세요" maxlength="8"/>
+		                <input class="form-control" type="text" name="fund" data-ng-model="user.fund" data-ng-if="Not" placeholder="자본금액을 입력하세요" disabled="disabled"/>          
+		            </div>
+		            <div class="form-group input-group">
+		                <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
+		                <input class="form-control" type="text" name="address" data-ng-model="user.address" data-ng-if="!Not" data-ng-required="true" data-ng-minlength="2" placeholder="지점을 입력하세요" maxlength="50"/>
+		                <input class="form-control" type="text" name="address" data-ng-model="user.address" data-ng-if="Not" placeholder="지점을 입력하세요" disabled="disabled"/>            
+		            </div>
+		            <div class="form-group" id="btnBox">
+		                <button type="button" id="cancelBtn" class="btn btn-def" data-ng-click="toManagement()">Cancel</button>
+		                <button type="button" id="signsubBtn" data-ng-click="toChk(user.user_ID)" data-ng-if="Not" class="btn btn-def">중복체크</button>
+		                <button type="submit" id="signsubBtn" data-ng-if="!Not" class="btn btn-def">Submit</button>
+		            </div>
+		            <div class="form-group">
+		            	<span data-ng-if="!Not"><h2>존재하지 않는 아이디입니다. 나머지 정보를 입력해주세요.</h2></span>
+		            </div>
+		        </form>        
+		      </div>
+	      </div>  
+	    </div>    
+	</div>
+</div>

@@ -1,0 +1,192 @@
+.paddingClass{
+    padding: 5% 3%;
+}
+
+.bigContent{
+    width: 100%;
+    height: auto;
+    border: 1px solid black;
+    display: inline-block;
+}
+.smallContent{
+    width: 100%;
+    height: 60%;
+    min-height: 350px;
+    border: solid 1px black;
+    display: inline-block;
+}
+
+/* 상단 상품찾기 라인 */
+.FindItemBox{
+    width: 100%;
+    height: auto;
+    display: inline-block;
+}
+
+.ItemBox1{
+    width: 20%;
+    min-width: 200px;
+    float: left;
+}
+
+.ItemBox2{
+    width: 20%;
+    min-width: 200px;
+    float: left;
+}
+
+#ItemInput{
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+.OrderButton{
+    float: left;
+}
+
+/* 리스트 라인박스 */
+.ListLine{
+    width: 100%;
+    height: auto;
+    display: inline-block;
+    float: left;
+}
+
+/* 왼쪽 리스트 */
+.LeftList{
+    width: 45%;
+    min-width: 200px;
+    min-height: 200px;
+    max-height: 200px;
+    float: left;
+    margin-bottom: 5px;
+}
+
+.tableBox{
+    width: 100%;
+    min-height: 200px;
+    max-height: 200px;
+    overflow-y: scroll;
+    overflow-x: inherit;
+}
+
+#Lefttable td{
+    overflow:hidden;
+    text-overflow: ellipsis;
+}
+
+#tableNo{
+    width: 10%;
+    min-width: 45px;
+}
+
+#tableNumber{
+    width: 45%;
+    min-width: 73px;
+}
+
+#tableName{
+    width: 45%;
+    min-width: 73px;
+}
+
+/* 가운데 버튼 */
+.buttonBox{
+    width: 10%;
+    height: calc(100% / 3);
+    min-width: 130px;
+    text-align: center;
+    display: inline-block;
+    float: left;
+}
+
+/* 버튼div */
+.btnBox{
+    width: 100%;
+    min-width: 130px;
+    height: auto;
+    padding: 10%;
+}
+
+#Orderbtn{
+    width: 50%;
+}
+
+/* 오른쪽 */
+.RightList{
+    width: 45%;
+    min-width: 200px;
+    min-height: 200px;
+    max-height: 200px;
+    float: left;
+    margin-bottom: 5px;
+}
+
+/* 아래 테이블 */
+.DownTableBox{
+    width: 100%;
+    height: 100%;
+    max-height: 350px;
+    overflow-y: scroll;
+    overflow-x: inherit;
+}
+
+.DownTableBox td{
+    overflow:hidden;
+    text-overflow: ellipsis;
+}
+
+#downTableNo{
+    width: 5%;
+    min-width: 45px;
+}
+
+#downTableNumber{
+    width: 30%;
+    min-width: 73px;
+}
+
+#downTableName{
+    width: 30%;
+    min-width: 73px;
+}
+
+#downTableMany{
+    width: 5%;
+    min-width: 45px;
+}
+
+#downTableMoney{
+    width: 10%;
+    min-width: 56px;
+}
+
+#downTableAll{
+    width: 10%;
+    min-width: 64px;
+}
+
+#downTableDate{
+    width: 10%;
+    min-width: 89px;
+}
+
+#Lefttable td{
+	cursor: pointer;
+}
+
+#leftTbody tr:hover{
+	cursor: pointer;
+	background-color: #FFE5C2;
+}
+
+#rightTbody tr:hover{
+	cursor: pointer;
+	background-color: #D6FFFF;
+}
+
+#downTbody tr:hover{
+	cursor: pointer;
+}

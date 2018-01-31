@@ -1,0 +1,22 @@
+<div class="col-sm-10" style="text-align: center;">
+	<div class="loginContent">
+	    <form name="loginForm" data-ng-submit="login()">
+		    <div class="form-group">
+			    <label for="inputUserName">POS - Data management is the first step in everything.</label>
+			</div>
+			<div class="form-group">
+			    <label for="inputUserName">user ID</label>
+			    <input class="form-control" placeholder="ID를 입력하세요"
+			            type="text" id="inputUserName" name="user_ID" data-ng-model="user.user_ID" data-ng-required="true" data-ng-minlength="2" maxlength="20"/>
+			</div>
+			<div class="form-group">
+			    <label for="inputPassword">Password</label>
+			    <input class="form-control" placeholder="PW를 입력하세요"
+			            type="password" id="inputPassword" name="user_PW" data-ng-model="user.user_PW" data-ng-required="true" data-ng-minlength="2" maxlength="20"/>
+			</div>
+			<button type="button" class="btn btn-default" id="BackBtn" data-ng-click="toMain()">Cancel</button>
+			<button type="submit" class="btn btn-default" id="loginBtn">Login</button>
+			<span data-ng-if="!Not"><h2>정확한 정보를 입력해주세요.</h2></span>
+		</form>
+	</div>
+</div>

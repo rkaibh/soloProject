@@ -1,0 +1,197 @@
+/* 왼쪽 상단 */
+#SellListLeft{
+    width: 50%;
+    min-width: 200px;
+    height: 523px;
+    float: left;
+    display: inline-block;
+}
+
+/* 테이블 박스 */
+#SellListTable{
+    width: 70%;
+    min-width: 200px;
+    height: 100%;
+    overflow-x: inherit;
+    overflow-y: scroll;
+}
+
+#SellListTable th, #SellListTable td{
+    text-overflow: ellipsis;
+    white-space:nowrap;
+    overflow: hidden;
+}
+
+#SellListTable tbody tr:hover {
+	cursor: pointer;
+	background-color: rgb(232, 217, 255);
+}
+
+#SellListNo{
+    width: 10%;
+    height: 0px;
+}
+
+#SellListItem{
+    width: 40%;
+    min-width: 73px;
+}
+
+#SellListMoney{
+    width: 35%;
+    min-width: 45px;
+}
+
+#SellListCC{
+    width: 15%;
+    min-width: 45px;
+}
+
+/* 오른쪽 */
+#SellListRight{
+    width: 45%;
+    min-width: 200px;
+    height: auto;
+    float: left;
+    display: inline-block;
+    border: 1px solid black;
+}
+
+/* 1층 */
+.SellListDetail1{
+    width: 100%;
+    height: auto;
+    min-height: 150px;
+    display: block;
+    border-bottom: 1px solid black;
+}
+
+.SellDetailText1{
+    width: 100%;
+    min-width: 120px;
+    height: auto;
+    margin-bottom: 5px;
+}
+
+#SellDetailText1{
+    text-align: center;
+    margin: 0;
+}
+.SellDetailText2{
+    width: 100%;
+    display: inline-block;
+    height: auto;
+}
+
+.SellDetailText2-1{
+    width: 10%;
+    min-width: 72px;
+    height: 100%;
+    float: left;
+    text-align: left;
+}
+
+#SellDetailText2{
+    margin: 0;
+}
+
+.SellDetailText2-2{
+    width: 50%;
+    min-width: 80px;
+    height: 100%;
+    float: left;
+}
+
+/* 2층 */
+.SellListDetail2{
+    width: 100%;
+    min-width: 150px;
+    height: auto;
+    max-height: 175px;
+    min-height: 175px;
+    overflow-y: scroll;
+    overflow-x: inherit;
+    border-bottom: 1px solid black;
+}
+
+#SellDetailTable{
+    width: 100%;
+    height: auto;
+}
+
+#SellDetailTable th{
+    font-size: 1.8rem;
+}
+
+#SellDetailTable th, #SellDetailTable td{
+    text-overflow: ellipsis;
+    white-space:nowrap;
+    overflow: hidden;
+    padding: 5px;
+}
+
+#SellDetailItem{
+    text-align: left;
+    width: 50%;
+    min-width: 64px;
+}
+
+#SellDetailOne{
+    text-align: center;
+    width: 20%;
+    min-width: 46px;
+}
+
+#SellDetailMany{
+    text-align: center;
+    width: 10%;
+    min-width: 46px;
+}
+
+#SellDetailMoney{
+    text-align: right;
+    width: 20%;
+    min-width: 46px;
+}
+
+/* 3층 */
+.SellListDetail3{
+    width: 100%;
+    height: auto;
+    min-height: 125px;
+    border-bottom: 1px solid black;
+}
+
+.SellDetailText2-3{
+    width: 40%;
+    min-width: 72px;
+    height: auto;
+    float: left;
+}
+
+.SellDetailText2-4{
+    width: 60%;
+    min-width: 100px;
+    height: auto;
+    float: left;
+    text-align: right;
+}
+
+#SellDetailText3{
+    margin: 0;
+    margin-top: 5px;
+}
+
+/* 4층 */
+.SellListDetail4{
+    width: 100%;
+    height: auto;
+    min-height: 50px;
+}
+
+#SellDetailBtn{
+    width: 90px;
+    height: 40px;
+    float: right;
+    margin-top: 5px;
+}

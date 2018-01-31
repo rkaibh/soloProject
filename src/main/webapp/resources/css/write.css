@@ -1,0 +1,23 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+
+/* 오른쪽 컨테이너 */
+.rightContainer{
+    height: auto;
+    display: inline-block;
+}
+
+.subContainer2{
+    margin: 5% 10% 0 10%;
+}
+
+#contents{
+    resize: none;
+    min-height: 300px;
+}
+
+#BtnBox{
+    text-align: right;
+}

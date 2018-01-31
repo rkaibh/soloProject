@@ -1,0 +1,26 @@
+/* 상단 */
+.MainUpContent{
+    width: 100%;
+    height: auto;
+    min-width: 200px;
+    min-height: 200px;
+    padding: 0 10%;
+    margin-bottom: 10px;
+}
+
+#mainImg{
+    width: 100%;
+}
+
+/* 하단 */
+.MainDownContent{
+    width: 100%;
+    min-width: 200px;
+    height: auto;
+    min-width: 200px;
+    padding: 0 10%;
+}
+
+#sideCenter{
+	text-align: center;
+}

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:security="http://www.springframework.org/schema/security"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd">
+	<!-- Security URL 주소 설정 -->
+	
+	<security:http auto-config="true">
+		<!-- auto-config : 자동으로 설정 내용 적용 -->
+		<!-- 클라이언트가 접속하는 URL 주소를 제어 하기 위하여 설정 (권한 확인) -->
+		<security:csrf disabled="true"/>
+		
+		<!-- login-page : URL 매핑 주소 -->
+		<!-- login-processing-url : form에 로그인 url -->
+		<!-- authentication-failure-forward-url : 오류 발생 시 돌아갈 url -->
+		<!-- default-target-url : 로그인이 성공시 보여줄 URL -->
+		<security:form-login
+			login-page="/login"
+			username-parameter="user_ID"
+			password-parameter="user_PW"
+			login-processing-url="/security_check"
+			authentication-failure-url="/login?error"
+			default-target-url="/main#!/pos"
+		/>
+		<security:logout
+			logout-url="/security_logout"
+			logout-success-url="/main#!/main"
+			delete-cookies="JSESSIONID"
+		/>
+		
+		<security:intercept-url
+			pattern="/login" access="true"/>
+		<security:intercept-url
+			pattern="/" access="true"/>
+			<security:intercept-url
+			pattern="/logon" access="true"/>
+		<security:intercept-url
+			pattern="/main" access="true"/>
+		<security:intercept-url
+			pattern="/resources/angular/**" access="true"/>
+		<security:intercept-url
+			pattern="/resources/html/**" access="true"/>
+		<security:intercept-url
+			pattern="/resources/css/**" access="true"/>
+		<security:intercept-url
+			pattern="/resources/js/**" access="true"/>
+		<security:intercept-url
+			pattern="/resources/img/**" access="true"/>
+		<security:intercept-url
+			pattern="/**" access="hasRole('ROLE_ADMIN')"/>
+	</security:http>
+	
+	<!-- 권한 설정 -->
+	<security:authentication-manager>
+		<security:authentication-provider>
+<!-- 			사용자 생성 -->
+<!-- 			<security:user-service> -->
+<!-- 				사용자별 권한 설정 -->
+<!-- 				<security:user name="admin" password="admin" authorities="ROLE_ADMIN"/> -->
+<!-- 				<security:user name="test" password="1234" authorities="ROLE_test"/> -->
+<!-- 			</security:user-service> -->
+			
+			<security:jdbc-user-service
+	data-source-ref="dataSource"
+	users-by-username-query="select user_ID as username, user_PW as `password`, `enabled` from security_user where user_ID = ?"
+	authorities-by-username-query="select user_ID, authority from security_user where user_ID = ?"/>
+	
+		
+		</security:authentication-provider>
+	</security:authentication-manager>
+
+</beans>
